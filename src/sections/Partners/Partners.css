@@ -1,0 +1,26 @@
+.partners {
+  display: grid;
+  gap: 28px;
+  padding-block: clamp(72px, 10vw, 160px);
+  border-top: 1px solid var(--c-line);
+}
+
+.partners__item {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(32px, 6vw, 96px);
+  text-transform: none;
+  padding-right: 0.5em;
+}
+
+.partners__star {
+  font-style: normal;
+  color: var(--c-accent);
+  font-size: 0.45em;
+  margin-left: 0.5em;
+}
+
+.partners__row--ghost .partners__item {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--c-ink-dim);
+}

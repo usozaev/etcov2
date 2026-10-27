@@ -1,0 +1,23 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+
+.curtain--enter {
+  background: var(--c-accent);
+  transform-origin: 50% 100%;
+}
+
+.curtain--leave {
+  background: var(--c-accent);
+  transform-origin: 50% 0%;
+}
+
+.curtain__label {
+  font-size: clamp(32px, 7vw, 110px);
+  color: var(--c-bg);
+}

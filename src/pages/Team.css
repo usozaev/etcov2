@@ -1,0 +1,189 @@
+.team-hero {
+  display: grid;
+  gap: 28px;
+  padding-top: calc(var(--header-h) + clamp(48px, 8vw, 120px));
+  padding-bottom: clamp(40px, 6vw, 80px);
+}
+
+.team-marquee {
+  padding-block: 20px;
+  border-block: 1px solid var(--c-line);
+}
+.team-marquee__item {
+  font-size: clamp(22px, 3vw, 44px);
+  text-transform: none;
+  padding-right: 0.6em;
+}
+.team-marquee__item i {
+  font-style: normal;
+  color: var(--c-accent);
+  margin-left: 0.6em;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(32px, 4vw, 64px) clamp(16px, 2vw, 32px);
+}
+.team-grid > .tcard:nth-child(3n + 2) {
+  margin-top: clamp(40px, 8vw, 140px);
+}
+
+.tcard {
+  display: grid;
+  gap: 18px;
+  text-align: left;
+  align-content: start;
+}
+
+.tcard__photo {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tcard__photo .reveal-img {
+  width: 100%;
+  height: 100%;
+}
+.tcard__photo img {
+  object-position: 50% 20%;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.8s;
+}
+.tcard:hover .tcard__photo img {
+  filter: grayscale(0);
+}
+
+.tcard__meta {
+  display: grid;
+  gap: 6px;
+}
+.tcard__index {
+  font-size: 12px;
+  color: var(--c-accent);
+  letter-spacing: 0.1em;
+}
+.tcard__name {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(17px, 1.5vw, 24px);
+  line-height: 1.15;
+  transition: color 0.3s;
+}
+.tcard:hover .tcard__name {
+  color: var(--c-accent);
+}
+.tcard__role {
+  font-size: 14px;
+  color: var(--c-ink-dim);
+}
+
+/* ---------- Модалка ---------- */
+
+.tmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(12, 13, 12, 0.8);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+}
+
+.tmodal__panel {
+  width: min(1200px, 100%);
+  height: min(780px, calc(100svh - 2 * var(--gutter)));
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: var(--c-bg-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tmodal__photo {
+  position: relative;
+  overflow: hidden;
+}
+.tmodal__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.tmodal__body {
+  position: relative;
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 56px);
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.tmodal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--c-line);
+  transition: background 0.3s, color 0.3s, transform 0.5s var(--ease);
+}
+.tmodal__close:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+  transform: rotate(90deg);
+}
+
+.bio {
+  display: grid;
+  gap: 14px;
+  color: var(--c-ink-dim);
+}
+.bio h4 {
+  margin-top: 8px;
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-ink);
+}
+.bio ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+.bio li::marker {
+  color: var(--c-accent);
+}
+
+@media (max-width: 960px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-grid > .tcard:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+  .team-grid > .tcard:nth-child(even) {
+    margin-top: 48px;
+  }
+  .tmodal__panel {
+    grid-template-columns: 1fr;
+    grid-template-rows: 38% 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-grid > .tcard:nth-child(even) {
+    margin-top: 0;
+  }
+}

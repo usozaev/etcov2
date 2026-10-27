@@ -1,0 +1,118 @@
+.pstack {
+  position: relative;
+  padding-top: clamp(80px, 12vw, 200px);
+}
+
+.pstack__head {
+  display: grid;
+  gap: 24px;
+  margin-bottom: clamp(48px, 6vw, 96px);
+}
+
+.pstack__card {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+
+.pstack__inner {
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: 50% 0%;
+  will-change: transform, filter;
+}
+
+.pstack__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pstack__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(12, 13, 12, 0.85) 0%, rgba(12, 13, 12, 0) 55%),
+    linear-gradient(180deg, rgba(12, 13, 12, 0.5) 0%, rgba(12, 13, 12, 0) 25%);
+}
+
+.pstack__info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: calc(var(--header-h) + 16px) clamp(28px, 4vw, 56px);
+}
+
+.pstack__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.pstack__num {
+  font-size: clamp(16px, 1.4vw, 22px);
+  color: var(--c-accent);
+}
+.pstack__region {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pstack__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.pstack__bottom h3 {
+  max-width: 14ch;
+  transition: transform 0.8s var(--ease);
+}
+.pstack__inner:hover h3 {
+  transform: translateX(16px);
+}
+
+.pstack__facts {
+  display: flex;
+  gap: clamp(20px, 3vw, 48px);
+  margin: 0;
+}
+.pstack__facts dt {
+  font-size: 12px;
+  color: rgba(239, 237, 230, 0.65);
+  margin-bottom: 4px;
+}
+.pstack__facts dd {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(18px, 2vw, 30px);
+  white-space: nowrap;
+}
+.pstack__facts small {
+  font-family: var(--f-body);
+  font-size: 13px;
+}
+
+.pstack__more {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(56px, 8vw, 120px);
+  background: var(--c-bg);
+}
+
+@media (max-width: 860px) {
+  .pstack__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pstack__facts {
+    flex-wrap: wrap;
+  }
+}
